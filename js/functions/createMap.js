@@ -1,4 +1,5 @@
-function createMap(mapSize){
+function createMap(mapSize, zero){
+    console.log(zero);
     let x = 36;
     let y = 34;
     for (let i = 0; i < mapSize; i++) {
@@ -14,7 +15,16 @@ function createMap(mapSize){
                 })
                 .on('pointerout', function(){
                     this.setTint();
-                }) 
+                })
+                .on('pointerdown', function(){
+                    zero.x = this.x - 2;
+                    zero.y = this.y - 1;
+                    console.log("Hello block x = " + this.x + " y = " + this.y);
+                })
         }
     }
+}
+
+function addZeroOrCross(){
+    
 }
