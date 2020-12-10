@@ -6,8 +6,15 @@ function createMap(mapSize){
         y += 64;
         for (let j = 0; j < mapSize; j++) {
             x += 64;
-            let block = this.add.sprite(x, y, 'block');
-            block.setScale(0.6,0.6);   
+            let block = this.add.sprite(x, y, 'block')
+                .setScale(0.6,0.6)
+                .setInteractive()
+                .on('pointerover', function(){
+                    this.setTint(0xe0e4f1);
+                })
+                .on('pointerout', function(){
+                    this.setTint();
+                }) 
         }
     }
 }
