@@ -1,9 +1,11 @@
 function createMap(mapSize, itemSprite, THIS){
+    
     let isClick;
     if(itemSprite == "zero") {
         isClick = true;
     }else{
         isClick = false;
+        isClick = robot.move(THIS, itemSprite);
     }
 
     let x = 36;
@@ -51,11 +53,14 @@ function createMap(mapSize, itemSprite, THIS){
                         //     THIS.scene.start('loseScene');
                         // }
                         //end delete later
+
                         isClick = false;
                         isClick = robot.move(THIS, itemSprite);
                         console.log("Hello block x = " + this.x + " y = " + this.y);
                         console.log("Hello block i = " + this.i + " j = " + this.j);
                         
+                    } else if (itemSprite == "cross") {
+                        isClick = robot.move(THIS, itemSprite);
                     } else {
                         this.setTint(0x2a67b8);
                         console.log("Этот квадрат занят!")
