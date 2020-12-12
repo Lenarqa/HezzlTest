@@ -1,4 +1,11 @@
 function createMap(mapSize, itemSprite, THIS){
+    let isClick;
+    if(itemSprite == "zero") {
+        isClick = true;
+    }else{
+        isClick = false;
+    }
+
     let x = 36;
     let y = 34;
     for (let i = 0; i < mapSize; i++) {
@@ -16,7 +23,8 @@ function createMap(mapSize, itemSprite, THIS){
                     this.setTint();
                 })
                 .on('pointerdown', function(){
-                    if(MAP[this.i][this.j] == 0) {
+                    
+                    if(MAP[this.i][this.j] == 0 && isClick) {
                         let item = THIS.add.sprite(-100, -100, itemSprite)
                         item.setScale(0.6,0.6),
                         item.setDepth(1),
@@ -28,23 +36,26 @@ function createMap(mapSize, itemSprite, THIS){
                         } else {
                             MAP[this.i][this.j] = 1;
                         }
+                        
+                        //delete later
+                        // let count = 0;
+                        // for (let i = 0; i < MAP.length; i++) {
+                        //     for (let j = 0; j < MAP.length; j++) { 
+                        //        if(MAP[i][j] == 1) {
+                        //             count += 1;
+                        //        } 
+                        //     }
+                        // }
 
-                        let count = 0;
-                        for (let i = 0; i < MAP.length; i++) {
-                            for (let j = 0; j < MAP.length; j++) { 
-                               if(MAP[i][j] == 1) {
-                                    count += 1;
-                                    console.log('true')
-                               } 
-                            }
-                        }
-
-                        if(count == 3) {
-                            THIS.scene.start('loseScene');
-                        }
-
+                        // if(count == 3) {
+                        //     THIS.scene.start('loseScene');
+                        // }
+                        //end delete later
+                        isClick = false;
+                        isClick = robot.move(THIS, itemSprite);
                         console.log("Hello block x = " + this.x + " y = " + this.y);
                         console.log("Hello block i = " + this.i + " j = " + this.j);
+                        
                     } else {
                         this.setTint(0x2a67b8);
                         console.log("Этот квадрат занят!")
