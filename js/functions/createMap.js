@@ -59,7 +59,7 @@ function createMap(mapSize, itemSprite, THIS){
                         console.log("Hello block x = " + this.x + " y = " + this.y);
                         console.log("Hello block i = " + this.i + " j = " + this.j);
                         
-                    } else if (itemSprite == "cross") {
+                    } else if (itemSprite == "cross" && MAP[this.i][this.j] == 0) {
                         isClick = robot.move(THIS, itemSprite);
                     } else {
                         this.setTint(0x2a67b8);

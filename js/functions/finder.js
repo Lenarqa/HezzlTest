@@ -30,6 +30,7 @@ class Finder {
             }
         }
 
+        // ищем 5 по веритикали для карты 5 на 5
         let tempIdVertical;
         let counterVertical = 0;
         for (let i = 0; i < 5; i++) {
@@ -46,6 +47,40 @@ class Finder {
                 }
             }
         }
+
+        // ищем 5 правая диагональ для карты 5 на 5
+        let tempIdRigthToDown;
+        let counterRigthToDown = 0;
+        if(MAP[0][0] != 0) {
+            tempIdRigthToDown = MAP[0][0];
+            for (let j = 0; j < 5; j++) {
+                if(MAP[j][j] == tempIdRigthToDown){
+                    counterRigthToDown += 1;
+                }
+                if(counterRigthToDown == 5){
+                    this.winOrLose(THIS,playerSprite, tempIdRigthToDown);
+                }  
+            }
+        }
+        
+
+        // ищем 5 левая диагональ для карты 5 на 5
+        let tempIdLeftToDown;
+        let counterLeftToDown = 0;
+        counterLeftToDown = 0;
+        if(MAP[0][4] != 0) {
+            tempIdLeftToDown = MAP[0][4];
+            for (let j = 0; j < 5; ++j) {
+                if(MAP[j][5-j-1] == tempIdLeftToDown){
+                    counterLeftToDown += 1;
+                }
+                if(counterLeftToDown == 5){
+                    this.winOrLose(THIS,playerSprite, tempIdLeftToDown);
+                }  
+            }
+        }
+        
+
 
 
     }
