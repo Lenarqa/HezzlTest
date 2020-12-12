@@ -16,7 +16,7 @@ class gameScene extends Phaser.Scene {
     }
 
     create() {
-        const THIS = this;
+        let THIS = this;
         // Задаем цвет заднего фона
         let cam  = this.cameras.add(0, 0, 900, 600);
         cam.setBackgroundColor(0x2a66b6);
@@ -26,6 +26,7 @@ class gameScene extends Phaser.Scene {
     }
 
     update() {
-        
+        let THIS = this;
+        finder.findFive(THIS, this.spriteName);
     }
 }
