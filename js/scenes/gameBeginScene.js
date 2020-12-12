@@ -15,7 +15,10 @@ class gameBeginScene extends Phaser.Scene {
         let cam  = this.cameras.add(0, 0, 900, 600);
         cam.setBackgroundColor(0x2a66b6);
 
-        let zero = this.add.sprite(100, 100, 'zero')
+        this.add.text(10, 100, 'За кого будем играть?', {font: '55px Arial'})
+        this.add.text(50, 400, 'Помни, что нолик ходит первым!', {font: '30px Arial'})
+
+        let zero = this.add.sprite(200, 270, 'zero')
             .setInteractive()
             .on('pointerover', function(){
                 this.setTint(0xe0e4f1);
@@ -25,7 +28,7 @@ class gameBeginScene extends Phaser.Scene {
             })
             .on('pointerdown', this.nextLVL.bind(this, 'zero'));
         
-        let cross = this.add.sprite(200, 100, 'cross')
+        let cross = this.add.sprite(350, 270, 'cross')
             .setInteractive()
             .on('pointerover', function(){
                 this.setTint(0xe0e4f1);
