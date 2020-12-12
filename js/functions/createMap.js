@@ -40,7 +40,7 @@ function createMap(mapSize, itemSprite, THIS){
                         }
 
                         if(count == 3) {
-                            THIS.scene.start('winScene');
+                            THIS.scene.start('loseScene');
                         }
 
                         console.log("Hello block x = " + this.x + " y = " + this.y);

@@ -13,6 +13,10 @@ class winScene extends Phaser.Scene {
     create() {
         console.log("Welcom to winScene!");
 
+        // Задаем цвет заднего фона
+        let cam  = this.cameras.add(0, 0, 900, 600);
+        cam.setBackgroundColor(0x2a66b6);
+
         this.add.text(180, 120, 'ПОБЕДА', {font: '55px Arial'});
 
         this.add.sprite(300, 300, 'restartBtn')
@@ -25,16 +29,11 @@ class winScene extends Phaser.Scene {
             })
             .on('pointerdown', this.nextLVL.bind(this));
 
-        // Задаем цвет заднего фона
-        let cam  = this.cameras.add(0, 0, 900, 600);
-        cam.setBackgroundColor(0x2a66b6);
     }
 
-    nextLVL()
-    {
+    nextLVL() {
         // обнуляем поле!
         clearMap();
-        
         this.scene.start('gameBeginScene');
     }
 }

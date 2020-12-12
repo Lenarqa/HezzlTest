@@ -40,8 +40,7 @@ class gameBeginScene extends Phaser.Scene {
     }
 
     
-    nextLVL(spriteNameVal)
-    {
+    nextLVL(spriteNameVal) {
         this.scene.start('gameScene', {spriteName: spriteNameVal});
     }
    
