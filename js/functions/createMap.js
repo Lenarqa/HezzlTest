@@ -29,6 +29,20 @@ function createMap(mapSize, itemSprite, THIS){
                             MAP[this.i][this.j] = 1;
                         }
 
+                        let count = 0;
+                        for (let i = 0; i < MAP.length; i++) {
+                            for (let j = 0; j < MAP.length; j++) { 
+                               if(MAP[i][j] == 1) {
+                                    count += 1;
+                                    console.log('true')
+                               } 
+                            }
+                        }
+
+                        if(count == 3) {
+                            THIS.scene.start('winScene');
+                        }
+
                         console.log("Hello block x = " + this.x + " y = " + this.y);
                         console.log("Hello block i = " + this.i + " j = " + this.j);
                     } else {
