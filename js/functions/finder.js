@@ -30,6 +30,23 @@ class Finder {
             }
         }
 
+        let tempIdVertical;
+        let counterVertical = 0;
+        for (let i = 0; i < 5; i++) {
+            counterVertical = 0;
+            if(MAP[0][i] != 0) {
+                tempIdVertical = MAP[0][i];
+                for (let j = 0; j < 5; j++) {
+                    if(MAP[j][i] == tempIdVertical){
+                        counterVertical += 1;
+                    }
+                    if(counterVertical == 5){
+                        this.winOrLose(THIS,playerSprite, tempIdVertical);
+                    }
+                }
+            }
+        }
+
 
     }
 }
