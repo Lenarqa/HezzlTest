@@ -6,8 +6,5 @@ function create() {
     
     // createMap.bind(game);//карта 5 на 5
     createMap.bind(this, 5, 'zero', THIS)();
-    
-    
-
 }
 
