@@ -25,6 +25,7 @@ class gameSixty extends Phaser.Scene {
     }
 
     update() {
-    
+        let THIS = this;  
+        finder.findFiveSixty(THIS, this.spriteName);
     }
 }
