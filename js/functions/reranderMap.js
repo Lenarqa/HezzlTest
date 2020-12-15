@@ -1,4 +1,5 @@
 function reranderMap(mapSize, itemSprite, THIS) {
+    console.log(MAP);
 
     let isClick;
     if(itemSprite == "zero") {
@@ -38,41 +39,12 @@ function reranderMap(mapSize, itemSprite, THIS) {
                         } else {
                             MAP[this.i][this.j] = 1;
                         }
-                        
-                        //delete later
-                        // let count = 0;
-                        // for (let i = 0; i < MAP.length; i++) {
-                        //     for (let j = 0; j < MAP.length; j++) { 
-                        //        if(MAP[i][j] == 1) {
-                        //             count += 1;
-                        //        } 
-                        //     }
-                        // }
-
-                        // if(count == 3) {
-                        //     THIS.scene.start('loseScene');
-                        // }
-                        //end delete later
 
                         isClick = false;
                         isClick = robot.move(THIS, itemSprite);
                         console.log("Hello block x = " + this.x + " y = " + this.y);
                         console.log("Hello block i = " + this.i + " j = " + this.j);
                         
-                    } else if(MAP[this.i][this.j] == 1 && isClick) {
-                        let item = THIS.add.sprite(-100, -100, 'zero')
-                        item.setScale(0.6,0.6),
-                        item.setDepth(1),
-                        item.x = this.x - 2,
-                        item.y = this.y - 1;
-                    } else if(MAP[this.i][this.j] == 2 && isClick) {
-                        let item = THIS.add.sprite(-100, -100, 'cross')
-                        item.setScale(0.6,0.6),
-                        item.setDepth(1),
-                        item.x = this.x - 2,
-                        item.y = this.y - 1;
-                    } else if (itemSprite == "cross" && MAP[this.i][this.j] == 0) {
-                        isClick = robot.move(THIS, itemSprite);
                     } else {
                         this.setTint(0x2a67b8);
                         console.log("Этот квадрат занят!")
@@ -84,4 +56,5 @@ function reranderMap(mapSize, itemSprite, THIS) {
         }
     }
 
+    drawOldMap.bind(this, THIS)()
 }
