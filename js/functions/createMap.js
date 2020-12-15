@@ -1,4 +1,5 @@
 function createMap(mapSize, itemSprite, THIS){
+    console.log("createMap MapSize= " + mapSize);
     
     let isClick;
     if(itemSprite == "zero") {
@@ -38,21 +39,6 @@ function createMap(mapSize, itemSprite, THIS){
                         } else {
                             MAP[this.i][this.j] = 1;
                         }
-                        
-                        //delete later
-                        // let count = 0;
-                        // for (let i = 0; i < MAP.length; i++) {
-                        //     for (let j = 0; j < MAP.length; j++) { 
-                        //        if(MAP[i][j] == 1) {
-                        //             count += 1;
-                        //        } 
-                        //     }
-                        // }
-
-                        // if(count == 3) {
-                        //     THIS.scene.start('loseScene');
-                        // }
-                        //end delete later
 
                         isClick = false;
                         isClick = robot.move(THIS, itemSprite);
@@ -60,6 +46,7 @@ function createMap(mapSize, itemSprite, THIS){
                         console.log("Hello block i = " + this.i + " j = " + this.j);
                         
                     } else if (itemSprite == "cross" && MAP[this.i][this.j] == 0) {
+                        console.log("createMap MapSize= " + mapSize);
                         isClick = robot.move(THIS, itemSprite);
                     } else {
                         this.setTint(0x2a67b8);

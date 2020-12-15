@@ -41,7 +41,7 @@ function reranderMap(mapSize, itemSprite, THIS) {
                         }
 
                         isClick = false;
-                        isClick = robot.move(THIS, itemSprite);
+                        isClick = robot.moveSixty(THIS, itemSprite);
                         console.log("Hello block x = " + this.x + " y = " + this.y);
                         console.log("Hello block i = " + this.i + " j = " + this.j);
                         
@@ -56,5 +56,5 @@ function reranderMap(mapSize, itemSprite, THIS) {
         }
     }
 
-    drawOldMap.bind(this, THIS)()
+    drawOldMap.bind(this, THIS)();
 }
