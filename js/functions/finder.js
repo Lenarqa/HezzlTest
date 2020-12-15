@@ -82,29 +82,11 @@ class Finder {
         
     }
 
-    findFiveSixty(THIS, playerSprite){
-        // ищем 5 по горизонтали для карты 5 на 5
-        // let tempId;
-        // let counter = 0;
-        // for (let i = 0; i < 8; i++) {
-        //     counter = 0;        
-        //         for (let j = 0; j < 8; j++) {
-        //             if(MAP[i][j] != 0) {
-        //                 tempId = MAP[i][j];
-        //             }
-        //             if(MAP[i][j] == tempId){
-        //                 counter += 1;
-        //             }
-        //             if(counter == 5){
-        //                 this.winOrLose(THIS,playerSprite, tempId);
-        //             }
-        //         }
-        // }
-
+    findFiveSixty(THIS, playerSprite) {
+        // ищем 5 по горизонтали для карты 8 на 8
         let tempId;
-        let counter = 0;
         for (let i = 0; i < 8; i++) {
-            for (let j = 0; j < 5; j++) {
+            for (let j = 0; j < 4; j++) {
                 if(MAP[i][j] != 0) {
                     tempId = MAP[i][j]
                 }
@@ -117,6 +99,24 @@ class Finder {
                 }
             }
         }
+
+        // ищем 5 по веритикали для карты 5 на 5
+        let tempIdVertical;
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 4; j++) {
+                if(MAP[j][i] != 0) {
+                    tempIdVertical = MAP[j][i]
+                }
+                if((tempIdVertical == MAP[j+1][i]) && 
+                    (tempIdVertical == MAP[j+2][i]) &&
+                    (tempIdVertical == MAP[j+3][i]) &&
+                    (tempIdVertical == MAP[j+4][i])
+                ){
+                    this.winOrLose(THIS, playerSprite, tempIdVertical);
+                }
+            }
+        }
+
         /*
 
         // ищем 5 по веритикали для карты 5 на 5
